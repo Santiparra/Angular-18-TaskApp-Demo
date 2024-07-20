@@ -1,14 +1,10 @@
 import { Component } from '@angular/core';
 
-import { User } from './domain/models/user.model';
+import { DUMMY_USERS } from './data';
 
-import { DUMMY_USERS } from './data/dummy-users';
+import { User } from './domain';
 
-import { HeaderComponent } from './presentation/components/header/header.component';
-import { UserComponent } from "./presentation/components/user/user.component";
-import { TasksComponent } from "./presentation/components/tasks/tasks.component";
-
-
+import { HeaderComponent, UserComponent, TasksComponent } from './presentation/components';
 
 @Component({
   selector: 'app-root',
@@ -23,9 +19,7 @@ export class AppComponent {
   selectedUserId?: string ;
 
   get selectedUser() {
-
     return this.users.find(user => user.id === this.selectedUserId);
-  
   }
 
   onSelectUser(id: string): void {
