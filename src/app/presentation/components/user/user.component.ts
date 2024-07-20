@@ -11,6 +11,7 @@ import { User } from '../../../domain/models';
 })
 export class UserComponent {
   @Input({ required: true }) user!: User;
+  @Input({ required: true }) isSelected!: boolean;
   @Output() selected = new EventEmitter<string>();
 
   get imgAddress(): string {
