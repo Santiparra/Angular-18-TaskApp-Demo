@@ -16,4 +16,8 @@ import { DUMMY_USERS } from './presentation/utils/dummy-users';
 export class AppComponent {
   title = 'Angular-18-TaskApp-Demo';
   users: User[] = DUMMY_USERS;
+
+  onSelectUser(id: string): void {
+    console.log('User selected: ' + id);
+  }
 }
