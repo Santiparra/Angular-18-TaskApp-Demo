@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+
+import { User } from './domain/models/user.model';
 
 import { HeaderComponent } from './presentation/components/header/header.component';
 import { UserComponent } from "./presentation/components/user/user.component";
+import { DUMMY_USERS } from './presentation/utils/dummy-users';
 
 @Component({
   selector: 'app-root',
@@ -13,4 +15,5 @@ import { UserComponent } from "./presentation/components/user/user.component";
 })
 export class AppComponent {
   title = 'Angular-18-TaskApp-Demo';
+  users: User[] = DUMMY_USERS;
 }
