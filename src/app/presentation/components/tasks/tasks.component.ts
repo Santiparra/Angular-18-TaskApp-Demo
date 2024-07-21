@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 
 import { dummyTasks } from '../../../data';
 
-import { Task } from '../../../domain';
+import { CreateTask, Task } from '../../../domain';
 
 import { NewTaskComponent } from './new-task';
 import { TaskComponent } from './task/task.component';
@@ -36,4 +36,16 @@ export class TasksComponent {
   onCancelAddTask(): void {
     this.isAddingTask = false;
   }
+
+  onAddTask(newTask: CreateTask) {
+    this.tasks.push({
+      id: new Date().getTime().toString(),
+      userId: this.userId,
+      title: newTask.title,
+      summary: newTask.summary,
+      dueDate: newTask.dueDate,
+    })
+    this.onCancelAddTask();
+  }
+
 }
