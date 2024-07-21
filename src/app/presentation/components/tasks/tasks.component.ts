@@ -4,18 +4,20 @@ import { dummyTasks } from '../../../data';
 
 import { Task } from '../../../domain';
 
+import { NewTaskComponent } from './new-task';
 import { TaskComponent } from './task/task.component';
 
 @Component({
   selector: 'app-tasks',
   standalone: true,
-  imports: [TaskComponent],
+  imports: [TaskComponent, NewTaskComponent],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css',
 })
 export class TasksComponent {
   @Input({ required: true }) userId!: string;
   @Input({ required: true }) name!: string;
+  isAddingTask = false;
 
   tasks: Task[] = dummyTasks;
 
@@ -25,5 +27,13 @@ export class TasksComponent {
 
   onCompletedTask(taskId: string) {
     this.tasks = this.tasks.filter((task) => task.id !== taskId);
+  }
+
+  onStartAddTask(): void {
+    this.isAddingTask = true;
+  }
+
+  onCancelAddTask(): void {
+    this.isAddingTask = false;
   }
 }
